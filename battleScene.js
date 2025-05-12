@@ -197,12 +197,32 @@ document.querySelector('#dialogueBox').addEventListener('click', (e) => {
   } else e.currentTarget.style.display = 'none'
 })
 const tutorialHTML = `
-  <div id="tutorialBox" style="display: none; position: absolute; top: 50px; left: 50%; transform: translateX(-50%); background: white; padding: 20px; border: 2px solid black; z-index: 1000; max-width: 300px;">
-    <h2>📖 Panduan Bermain</h2>
-    <p>🎮 Gunakan tombol arah (WASD / Virtual D-Pad) untuk bergerak.</p>
-    <p>⚔️ Jelajahi Rumput Untuk Melawan Para Musuh.</p>
-    <p>🤝 Tekan Spasi / Tombol 🤝 untuk berbicara dengan karakter.</p>
-    <button onclick="document.getElementById('tutorialBox').style.display = 'none'">Tutup</button>
+  <div id="tutorialOverlay" style="
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  ">
+    <div id="tutorialBox" style="
+      background: white;
+      padding: 20px;
+      border: 3px solid black;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      max-width: 90vw;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      text-align: center;
+    ">
+      <h2 style="font-size: 14px;">📖 Panduan Bermain</h2>
+      <p>🎮 Gunakan tombol arah (WASD / Virtual D-Pad) untuk bergerak.</p>
+      <p>⚔ Jelajahi Rumput Untuk Melawan Para Musuh.</p>
+      <p>🤝 Tekan Spasi / Tombol 🤝 untuk berbicara dengan karakter.</p>
+      <button onclick="document.getElementById('tutorialOverlay').style.display = 'none'"
+        style="margin-top: 10px; padding: 6px 12px; font-size: 10px; cursor: pointer;">Tutup</button>
+    </div>
   </div>
 `;
 document.body.insertAdjacentHTML('beforeend', tutorialHTML);
